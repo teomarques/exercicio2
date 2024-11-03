@@ -28,48 +28,17 @@ public class NCSLab {
         }
     }
 
-    // Métodos para geração de valores conforme especificado (sem variáveis estáticas)
-    private int gerarRamServidor() {
-        int[] opcoesRAM = {128, 256, 512};
-        return opcoesRAM[new Random().nextInt(opcoesRAM.length)];
-    }
+    private int gerarRamServidor() { return new int[]{128, 256, 512}[new Random().nextInt(3)]; }
+    private int gerarDiscoServidor() { return new int[]{1024, 2048, 4096, 8192, 16384}[new Random().nextInt(5)]; }
+    private float gerarCpuServidor(Random random) { return 3.0f + random.nextFloat(); }
 
-    private int gerarDiscoServidor() {
-        int[] opcoesDisco = {1024, 2048, 4096, 8192, 16384};
-        return opcoesDisco[new Random().nextInt(opcoesDisco.length)];
-    }
+    private int gerarRamLaptop() { return new int[]{16, 32, 64}[new Random().nextInt(3)]; }
+    private int gerarDiscoLaptop() { return new int[]{256, 512, 1024}[new Random().nextInt(3)]; }
+    private float gerarCpuLaptop(Random random) { return 2.0f + random.nextFloat(); }
 
-    private float gerarCpuServidor(Random random) {
-        return 3.0f + random.nextFloat() * (4.0f - 3.0f);
-    }
-
-    private int gerarRamLaptop() {
-        int[] opcoesRAM = {16, 32, 64};
-        return opcoesRAM[new Random().nextInt(opcoesRAM.length)];
-    }
-
-    private int gerarDiscoLaptop() {
-        int[] opcoesDisco = {256, 512, 1024};
-        return opcoesDisco[new Random().nextInt(opcoesDisco.length)];
-    }
-
-    private float gerarCpuLaptop(Random random) {
-        return 2.0f + random.nextFloat() * (3.0f - 2.0f);
-    }
-
-    private int gerarRamRaspberry() {
-        int[] opcoesRAM = {2, 4, 8};
-        return opcoesRAM[new Random().nextInt(opcoesRAM.length)];
-    }
-
-    private int gerarDiscoRaspberry() {
-        int[] opcoesDisco = {16, 32, 64, 128};
-        return opcoesDisco[new Random().nextInt(opcoesDisco.length)];
-    }
-
-    private float gerarCpuRaspberry(Random random) {
-        return 1.0f + random.nextFloat() * (2.0f - 1.0f);
-    }
+    private int gerarRamRaspberry() { return new int[]{2, 4, 8}[new Random().nextInt(3)]; }
+    private int gerarDiscoRaspberry() { return new int[]{16, 32, 64, 128}[new Random().nextInt(4)]; }
+    private float gerarCpuRaspberry(Random random) { return 1.0f + random.nextFloat(); }
 
     public void imprimirComputadores() {
         for (Computador comp : computadores) {

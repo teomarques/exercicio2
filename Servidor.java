@@ -1,10 +1,7 @@
-import java.util.Random;
-
 public class Servidor extends Computador {
 
-    // Construtor com parâmetros e validação
     public Servidor(String id, int ram, int disco, float cpu) {
-        super(id, ram, disco, cpu, "x64");
+        super(id, ram, disco, cpu, "x64", "Cloud");
 
         if (ram < 128 || ram > 512) {
             throw new IllegalArgumentException("A RAM do servidor deve estar entre 128 e 512 GB.");
@@ -17,7 +14,6 @@ public class Servidor extends Computador {
         }
     }
 
-    // Método para calcular o consumo energético do Servidor
     @Override
     public double calcularConsumoEnergetico() {
         return 80 * cpu;

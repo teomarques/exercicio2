@@ -2,7 +2,7 @@ public class Laptop extends Computador {
     private boolean hasGPU;
 
     public Laptop(String id, boolean hasGPU, int ram, int disco, float cpu) {
-        super(id, ram, disco, cpu, "x64", "Edge");
+        super(id, ram, disco, cpu, "Edge");
         this.hasGPU = hasGPU;
     }
 

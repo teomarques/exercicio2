@@ -1,8 +1,8 @@
 public class Servidor extends Computador {
-
     public Servidor(String id, int ram, int disco, float cpu) {
-        super(id, ram, disco, cpu, "x64", "Cloud");
+        super(id, ram, disco, cpu, "Cloud");
 
+        // Verificações de limites específicos para Servidor
         if (ram < 128 || ram > 512) {
             throw new IllegalArgumentException("A RAM do servidor deve estar entre 128 e 512 GB.");
         }

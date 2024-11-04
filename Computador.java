@@ -1,26 +1,26 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Computador {
     protected String id;
     protected int ram;
     protected int armDisco;
     protected float cpu;
-    protected String arq;
+    protected String arq; // Arquitetura aleatória
     protected String nivel;
 
-    public Computador(String id, int ram, int armDisco, float cpu, String arq, String nivel) {
+    public Computador(String id, int ram, int armDisco, float cpu, String nivel) {
         this.id = id;
         this.ram = ram;
         this.armDisco = armDisco;
         this.cpu = cpu;
-        setArq(arq);
+        this.arq = gerarArquiteturaAleatoria(); // Geração aleatória de arquitetura
         this.nivel = nivel;
     }
 
-    // Método para definir a arquitetura, aceitando apenas "x64" ou "ARM"
-    public void setArq(String arq) {
-        if (!arq.equals("x64") && !arq.equals("ARM")) {
-            throw new IllegalArgumentException("A arquitetura só pode ser x64 ou ARM.");
-        }
-        this.arq = arq;
+    // Método para gerar uma arquitetura aleatória ("x64" ou "ARM")
+    private String gerarArquiteturaAleatoria() {
+        return new Random().nextBoolean() ? "x64" : "ARM";
     }
 
     public String getArq() {
@@ -31,15 +31,14 @@ public class Computador {
         return id;
     }
 
-    // Método para exibir informações do computador
     @Override
     public String toString() {
         return String.format("ID: %s, RAM: %dGB, Disco: %dGB, CPU: %.1fGHz, Nível: %s, Arquitetura: %s",
                 id, ram, armDisco, cpu, nivel, arq);
     }
 
-    // Método polimórfico de cálculo de consumo energético (sobrescrito nas subclasses)
+    // Método de cálculo de consumo energético (pode ser sobrescrito nas subclasses)
     public double calcularConsumoEnergetico() {
-        return 0; // valor padrão, será sobrescrito nas subclasses
+        return 0; // Valor padrão, será sobrescrito nas subclasses
     }
 }

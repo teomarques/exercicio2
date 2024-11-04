@@ -1,6 +1,14 @@
+/**
+ * @author Miguel Quaresma
+ * @author Teodoro Marques
+ * @version 1.0
+ */
 public class Main {
+    /**
+     * Método main
+     * @param args
+     */
     public static void main(String[] args) {
-
         NCSLab lab = new NCSLab();
 
         System.out.println("Todos os Computadores:");

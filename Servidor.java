@@ -1,21 +1,21 @@
 /**
- * Classe Servidor herda Computador
- * @author Miguel Quaresma
- * @author Teodoro Marques
+ * Classe Servidor que herda da classe Computador.
+ * Representa um servidor com requisitos específicos de RAM, disco e CPU.
+ *
  * @version 1.0
  */
 public class Servidor extends Computador {
     /**
-     * Método construtor Servidor para a classe Servidor
-     * @param id
-     * @param ram
-     * @param disco
-     * @param cpu
+     * Construtor da classe Servidor.
+     * @param id Identificador do servidor.
+     * @param ram Quantidade de RAM em GB.
+     * @param disco Capacidade de armazenamento em disco em GB.
+     * @param cpu Velocidade da CPU em GHz.
+     * @throws IllegalArgumentException se os valores de RAM, disco ou CPU estiverem fora dos limites permitidos.
      */
     public Servidor(String id, int ram, int disco, float cpu) {
         super(id, ram, disco, cpu, "Cloud");
 
-        // Verificações de limites específicos para Servidor
         if (ram < 128 || ram > 512) {
             throw new IllegalArgumentException("A RAM do servidor deve estar entre 128 e 512 GB.");
         }
@@ -28,8 +28,8 @@ public class Servidor extends Computador {
     }
 
     /**
-     * Método para calcular consumo energético do Servidor
-     * @return 80 * cpu
+     * Calcula o consumo energético do servidor.
+     * @return O consumo energético baseado na CPU, em watts.
      */
     @Override
     public double calcularConsumoEnergetico() {

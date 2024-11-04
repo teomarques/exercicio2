@@ -1,4 +1,17 @@
+/**
+ * Classe Servidor herda Computador
+ * @author Miguel Quaresma
+ * @author Teodoro Marques
+ * @version 1.0
+ */
 public class Servidor extends Computador {
+    /**
+     * Método construtor Servidor para a classe Servidor
+     * @param id
+     * @param ram
+     * @param disco
+     * @param cpu
+     */
     public Servidor(String id, int ram, int disco, float cpu) {
         super(id, ram, disco, cpu, "Cloud");
 
@@ -14,6 +27,10 @@ public class Servidor extends Computador {
         }
     }
 
+    /**
+     * Método para calcular consumo energético do Servidor
+     * @return 80 * cpu
+     */
     @Override
     public double calcularConsumoEnergetico() {
         return 80 * cpu;
